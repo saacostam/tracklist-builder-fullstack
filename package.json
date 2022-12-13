@@ -1,0 +1,30 @@
+{
+  "name": "tracklist-builder-backend",
+  "version": "1.0.0",
+  "description": "backend for tracklist builder",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saacostam/tracklist-builder-backend.git"
+  },
+  "author": "Santiago Acosta Meza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saacostam/tracklist-builder-backend/issues"
+  },
+  "homepage": "https://github.com/saacostam/tracklist-builder-backend#readme",
+  "dependencies": {
+    "csv": "^6.2.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20",
+    "puppeteer": "^19.4.0"
+  }
+}

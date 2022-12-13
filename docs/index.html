@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracklist Builder Documentation</title>
+    <style>
+        *{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+        }
+        h1, h2, h3, h4, h5, h6, p{
+            margin-bottom: 1rem;
+        }
+        body{
+            background-color: darkslategrey;
+        }
+        #doc{
+            max-width: 60rem;
+            padding: 2rem;
+            margin: auto;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="doc">
+        <h1>Tracklist Builder Documentation 📄</h1>
+
+        <h3>Motivation 🦉</h3>
+        <p>The purpose of this application is to help djs to create there own tracklists. By emulating the music selection of popular tracklists, based on the Spotify track (ML-based) descriptors, a dj can create a similar tracklist that matches the same variations in "energy" (or in general, in spotify descriptors). In this way, the new generated tracklist is similar in "energy", "feeling", "music selection", etc; but with different songs, that the dj can choose personally, therefore creating a personalized end result.</p>
+
+        <h3>Main Functionalities 💻</h3>
+        <p>Tracklist Builder is a web-based application with the purpose of enabling users to:</p>
+        <ul>
+            <li>
+                Gather data from the web by using web scraping
+                <ul>
+                    <li>
+                        Get tracklist information from 1001tracklist about the songs that were played at a dj set
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Analyse and visualize the data
+                <ul>
+                    <li>Get the spotify information about the songs in the setlist</li>
+                    <li>Graph the changes in song parameters to visualize the changes in "energy"</li>
+                </ul>
+            </li>
+            <li>
+                Use the data as a way to build similar tracklist
+                <ul>
+                    <li>
+                        Use the songs stores in the database to generate a new tracklist the best-fits the parameters (graph) of the previously analyzed songs
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

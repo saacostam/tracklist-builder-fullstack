@@ -26,7 +26,7 @@ try{
 
 	setupSocket(server);
 
-	console.log('🎯 Started socket!')
+	console.log('🎯 Started Socket!');
 
 }catch (err){
 	console.error('❌ Could not connect to database!', err);

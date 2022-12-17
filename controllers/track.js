@@ -92,4 +92,26 @@ async function getTracksByMultiplesIds(req, res){
     })
 }
 
-export { getTrackById, getTrackByInfo, getTracksByMultiplesIds };
+async function getSimilarTracksUtil( objective_track, alpha ){
+    const { track_name, 
+        danceability, energy, loudness, speechiness, 
+        acousticness, instrumentalness, liveness, valence,  } = objective_track;
+    
+    const query = Track.find({
+        danceability : { $gt: danceability-alpha, $lt: danceability+alpha },
+        energy : { $gt: energy-alpha, $lt: energy+alpha },
+        speechiness : { $gt: speechiness-alpha, $lt: speechiness+alpha },
+        acousticness : { $gt: acousticness-alpha, $lt: acousticness+alpha },
+        valence : { $gt: valence-alpha, $lt: valence+alpha },
+        // instrumentalness : { $gt: instrumentalness-alpha, $lt: instrumentalness+alpha },
+        // liveness : { $gt: liveness-alpha, $lt: liveness+alpha },
+        // loudness : { $gt: loudness-alpha, $lt: loudness+alpha },
+        track_name : {$ne: track_name},
+    }).limit(15);
+
+    const results = await query.exec();
+
+    return results;
+}
+
+export { getTrackById, getTrackByInfo, getTracksByMultiplesIds, getSimilarTracksUtil };

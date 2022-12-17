@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import { getSimilarTracksUtil } from './../controllers/track.js'
 
 function setupSocket( webServer ){
     const io = new Server( webServer, {
@@ -9,10 +10,15 @@ function setupSocket( webServer ){
     });
 
     io.on('connection', (socket)=>{
-        socket.emit('hello', 'hello world');
+        socket.emit('connection-success', true);
 
-        socket.on('select-track', ()=>{
-            console.log('select-track');
+        socket.on('find-similar-tracks', async (track, alpha)=>{
+            try{
+                const tracks = await getSimilarTracksUtil(track, alpha);
+                socket.emit('return-simliar-tracks', tracks);
+            }catch(e){
+                socket.emit('return-simliar-tracks', []);
+            }
         })
     })
 }

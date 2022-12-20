@@ -15,7 +15,7 @@ app.use(cors(corsOptions));
 const port = process.env.PORT || 3000;
 
 app.use('/api', router);
-app.use('/docs', express.static('docs'));
+app.use('/', express.static('public'));
 
 try{
 	await connectDB(process.env.MONGO_DB_URI);
